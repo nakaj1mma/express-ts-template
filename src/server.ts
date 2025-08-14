@@ -14,8 +14,7 @@ config({
 
 import app from "./app";
 import { connectDB } from "./config/db";
-import box from "./utils/boxStyling";
-import chalk from "chalk";
+import { logInfo } from "./utils/messageStyling";
 
 const port = process.env.PORT || 3000;
 
@@ -25,7 +24,7 @@ const startServer = async () => {
   await connectDB();
 
   server = app.listen(port, () => {
-    console.log(box(`App running on port ${port}...`, chalk.green));
+    logInfo(`App running on port ${port}...`);
     setServer(server);
   });
 };

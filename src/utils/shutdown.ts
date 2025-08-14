@@ -1,6 +1,6 @@
 import { Server } from "http";
-import box from "./boxStyling";
 import chalk from "chalk";
+import { logError, logWarning } from "./messageStyling";
 
 let serverRef: Server;
 
@@ -9,10 +9,10 @@ export const setServer = (srv: Server): void => {
 };
 
 export const shuttingDownServer = (message: string, err: Error): void => {
-  console.log(box(message, chalk.red));
+  logError(message);
   console.error(err.name, err.message);
 
-  console.log(box("The process is shutting down...", chalk.yellow));
+  logWarning("The process is shutting down...");
 
   if (serverRef) {
     serverRef.close(() => {
