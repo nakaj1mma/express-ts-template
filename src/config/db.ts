@@ -1,4 +1,3 @@
-import chalk from "chalk";
 import mongoose from "mongoose";
 
 import { logError, logInfo } from "../utils/messageStyling";
